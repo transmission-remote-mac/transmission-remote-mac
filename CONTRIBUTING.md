@@ -2,6 +2,8 @@
 
 Bug reports, focused fixes and pull requests are welcome. For larger features or architectural changes, open an issue first so we can agree on the scope.
 
+Report suspected vulnerabilities through the private route in [SECURITY.md](SECURITY.md), not through a public issue.
+
 ## Pull requests
 
 - Fork the repository, create a topic branch and open your pull request against `main`.

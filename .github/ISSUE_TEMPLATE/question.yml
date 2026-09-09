@@ -1,0 +1,35 @@
+name: Question
+description: Ask about setup, compatibility or an existing workflow.
+title: "[Question]: "
+labels:
+  - question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What would you like to know?
+      description: Include enough context to understand the setup or workflow without exposing private server details.
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Leave blank when the question is not version-specific.
+
+  - type: input
+    id: transmission-version
+    attributes:
+      label: Transmission and RPC version
+      description: Leave blank when the question is not daemon-version dependent.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the README and existing issues first.
+          required: true
+        - label: I removed credentials, private addresses and private torrent information.
+          required: true

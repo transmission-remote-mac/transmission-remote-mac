@@ -1,0 +1,17 @@
+.DS_Store
+/.codex/
+/.build/
+/.swiftpm/
+/.idea/
+/.tmp/
+/dist/
+__pycache__/
+*.py[cod]
+*.xcuserdata/
+DerivedData/
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.mobileprovision

@@ -1,0 +1,33 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Source hygiene
+        run: python3 script/check_source_hygiene.py
+      - name: Mock RPC and tooling tests
+        run: python3 -m unittest discover -s script -p 'test_*.py'
+      - name: Shell syntax
+        run: |
+          for script in script/*.sh script/lib/*.sh; do
+            bash -n "$script" || exit
+          done
+      - name: Swift tests with warnings as errors
+        run: swift test -Xswiftc -warnings-as-errors

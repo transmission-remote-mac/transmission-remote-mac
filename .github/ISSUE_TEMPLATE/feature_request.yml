@@ -1,0 +1,49 @@
+name: Feature request
+description: Suggest a focused improvement or missing Transmission Remote GUI workflow.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Start with the workflow or limitation rather than a proposed implementation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      description: Describe how the feature should behave in the native macOS application.
+    validations:
+      required: true
+
+  - type: textarea
+    id: parity
+    attributes:
+      label: Transmission Remote GUI reference
+      description: If this is a parity request, describe the relevant transgui interaction or option.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include any existing workflow that nearly solves the problem.
+
+  - type: input
+    id: rpc-version
+    attributes:
+      label: Relevant Transmission or RPC version
+      description: Leave blank when the request is not daemon-version dependent.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues for the same request.
+          required: true
+        - label: This request describes behavior, not a copy of the Lazarus UI architecture.
+          required: true

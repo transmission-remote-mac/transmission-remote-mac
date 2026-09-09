@@ -1,0 +1,80 @@
+name: Bug report
+description: Report behavior that is broken or unexpected.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Transmission Remote Mac. Remove passwords, server addresses and private torrent or tracker details before submitting.
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Find this in Transmission Remote Mac > About Transmission Remote Mac.
+      placeholder: 0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: macOS 15.6
+    validations:
+      required: true
+
+  - type: input
+    id: transmission-version
+    attributes:
+      label: Transmission and RPC version
+      description: Include the daemon version and RPC version when available.
+      placeholder: Transmission 4.0.6, RPC 17
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you were doing when it appeared.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe what should have happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Relevant diagnostics
+      description: Add a redacted error, log excerpt or screenshot. Never include credentials or private torrent data.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed credentials, private addresses and private torrent information.
+          required: true

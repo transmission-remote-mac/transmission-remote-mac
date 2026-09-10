@@ -2,7 +2,9 @@
 
 **Run Transmission on a server. Manage it from a proper Mac app.**
 
-Transmission Remote Mac is a native macOS client for remote Transmission daemons. It keeps the dense, practical workflows that made Transmission Remote GUI so useful, without making you live in a browser tab.
+Transmission Remote Mac is a native Apple Silicon macOS client for remotely managing Transmission daemons. It keeps the dense, practical workflows that made Transmission Remote GUI so useful, without making you live in a browser tab.
+
+**[Download the latest release](https://github.com/transmission-remote-mac/transmission-remote-mac/releases/latest)** for Apple Silicon Macs running macOS 14 or later.
 
 ## Why I built it
 
@@ -46,7 +48,7 @@ Transmission Remote GUI is the behaviour reference, not an architecture template
 
 ## Install a GitHub release
 
-The first GitHub release will be self-signed, not notarized by Apple and not signed by an identified Apple Developer. macOS may block its first launch. That is expected for this release model.
+Version 0.1.0 is out now. It is self-signed, not notarized by Apple and not signed by an identified Apple Developer. macOS may block its first launch. That is expected for this release model.
 
 1. Download the app ZIP, GPL source archive, manifest and checksum file into the same folder.
 2. Before opening the ZIP, verify the three checked files in Terminal:
@@ -90,7 +92,7 @@ The sections below are for maintainers cutting releases or proving the build. If
 
 ### Self-signed GitHub release
 
-The initial public release will be a clearly labelled, non-notarized ZIP. Start from a complete, clean checkout tagged `v<VERSION>` at `HEAD`, then supply an explicit Apple-compatible build number:
+Current self-signed releases ship as clearly labelled, non-notarized ZIPs. Start from a complete, clean checkout tagged `v<VERSION>` at `HEAD`, then supply an explicit Apple-compatible build number:
 
 ```zsh
 BUILD_NUMBER=1 ./script/release_unnotarized.sh

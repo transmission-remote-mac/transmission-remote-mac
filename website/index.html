@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transmission Remote Mac</title>
+    <meta
+      name="description"
+      content="A native Apple Silicon Mac app for managing Transmission daemons running on another machine."
+    >
+    <meta name="theme-color" content="#170f12">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Transmission Remote Mac">
+    <meta
+      property="og:description"
+      content="Run Transmission on a server. Manage it from a proper Mac app."
+    >
+    <meta property="og:url" content="https://transmission-remote-mac.pages.dev/">
+    <meta
+      property="og:image"
+      content="https://transmission-remote-mac.pages.dev/assets/social-preview.png"
+    >
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="assets/app-icon.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Transmission Remote Mac home">
+        <img src="assets/app-icon.png" alt="" width="44" height="44">
+        <span>Transmission Remote Mac</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/transmission-remote-mac/transmission-remote-mac">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="eyebrow">Native macOS · Apple Silicon · Open source</div>
+          <h1>Run Transmission on a server.<br><span>Manage it from a proper Mac app.</span></h1>
+          <p class="hero-lede">
+            Transmission Remote Mac is a native Apple Silicon client for managing Transmission
+            daemons. It keeps the dense, practical workflow of Transmission Remote GUI without
+            making you live in a browser tab.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/transmission-remote-mac/transmission-remote-mac/releases/latest"
+            >Download the latest release</a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/transmission-remote-mac/transmission-remote-mac"
+            >View the source</a>
+          </div>
+          <p class="compatibility">For Apple Silicon Macs running macOS 14 or later.</p>
+        </div>
+
+        <div class="hero-icon" aria-hidden="true">
+          <div class="icon-glow"></div>
+          <img src="assets/app-icon.png" alt="" width="360" height="360">
+        </div>
+      </section>
+
+      <section class="showcase" aria-labelledby="showcase-title">
+        <div class="section-heading">
+          <p class="kicker">The app</p>
+          <h2 id="showcase-title">The torrent list and details stay together</h2>
+          <p>
+            Sort or filter a busy queue, select a torrent, and inspect its files, peers, trackers
+            or properties beside the list.
+          </p>
+        </div>
+
+        <figure class="app-window">
+          <div class="window-bar" aria-hidden="true"></div>
+          <img
+            src="assets/app-overview.png"
+            alt="Transmission Remote Mac showing a torrent queue, filters and torrent details"
+          >
+          <figcaption>The screenshot uses the project's local mock daemon, so every torrent shown here is fictional.</figcaption>
+        </figure>
+      </section>
+
+      <section class="features" id="features" aria-labelledby="features-title">
+        <div class="section-heading compact">
+          <p class="kicker">What works</p>
+          <h2 id="features-title">Built around everyday Transmission jobs</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article>
+            <div class="feature-icon">01</div>
+            <h3>Start, stop and organise</h3>
+            <p>Queue, verify, reannounce, label, move, rename and remove torrents.</p>
+          </article>
+          <article>
+            <div class="feature-icon">02</div>
+            <h3>Inspect a torrent</h3>
+            <p>Inspect files, peers, trackers and properties beside the torrent list.</p>
+          </article>
+          <article>
+            <div class="feature-icon">03</div>
+            <h3>Switch between servers</h3>
+            <p>Save connection profiles with passwords protected by macOS Keychain.</p>
+          </article>
+          <article>
+            <div class="feature-icon">04</div>
+            <h3>Add new torrents</h3>
+            <p>Open torrent files, paste magnet links, use URLs or provide daemon-visible paths.</p>
+          </article>
+          <article>
+            <div class="feature-icon">05</div>
+            <h3>Use Finder</h3>
+            <p>Map daemon paths to mounted local folders, then reveal or open downloaded files in Finder.</p>
+          </article>
+          <article>
+            <div class="feature-icon">06</div>
+            <h3>Respect server capabilities</h3>
+            <p>The app checks the connected daemon and only sends settings and RPC fields it supports.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story" aria-labelledby="story-title">
+        <div>
+          <p class="kicker">Why it exists</p>
+          <h2 id="story-title">A native Mac successor to Transmission Remote GUI</h2>
+        </div>
+        <div class="story-copy">
+          <p>
+            Transmission Remote GUI proved how useful a compact remote client could be. This
+            project keeps its familiar workflows and rebuilds them with SwiftUI, AppKit and native
+            macOS services.
+          </p>
+          <p>
+            This is an independent GPL-2.0 project, not an official Transmission client. The source
+            is public and bug reports are welcome.
+          </p>
+        </div>
+      </section>
+
+      <section class="install" id="install" aria-labelledby="install-title">
+        <div class="install-copy">
+          <p class="kicker">Current release</p>
+          <h2 id="install-title">Installing the current release</h2>
+          <p>
+            Version 0.1.0 is self-signed and not notarized by Apple, so macOS may block it the first
+            time you open it. The GitHub release includes checksums, a manifest and matching GPL
+            source. Follow the installation steps to verify the download and approve the app in
+            Privacy &amp; Security.
+          </p>
+          <div class="install-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/transmission-remote-mac/transmission-remote-mac/releases/latest"
+            >Get Transmission Remote Mac</a>
+            <a
+              class="text-link"
+              href="https://github.com/transmission-remote-mac/transmission-remote-mac#install-a-github-release"
+            >Read the installation steps</a>
+          </div>
+        </div>
+        <aside class="install-note" aria-label="Release trust information">
+          <strong>About the self-signed release</strong>
+          <p>
+            The app is signed with the project's self-signed release identity. That signature does
+            not provide Apple notarization or identify an Apple Developer. The installation guide
+            shows how to verify the downloaded files before opening the app.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">
+        <img src="assets/app-icon.png" alt="" width="36" height="36">
+        <span>Transmission Remote Mac</span>
+      </div>
+      <p>A native macOS client for remote Transmission servers.</p>
+      <nav aria-label="Footer navigation">
+        <a href="https://github.com/transmission-remote-mac/transmission-remote-mac">Source</a>
+        <a href="https://github.com/transmission-remote-mac/transmission-remote-mac/issues">Issues</a>
+        <a href="https://github.com/transmission-remote-mac/transmission-remote-mac/blob/main/PRIVACY.md">Privacy</a>
+      </nav>
+    </footer>
+  </body>
+</html>

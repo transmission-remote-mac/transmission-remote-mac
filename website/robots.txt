@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://transmission-remote-mac.pages.dev/sitemap.xml

@@ -43,7 +43,7 @@ struct TorrentTableView: View {
                 tableColumnCustomizationController.columnWidths[column.rawValue].map { (column.title, $0) }
             }
         )))
-        .id(tableColumnCustomizationController.replacementRevision)
+        .id(tableMountIdentity)
         .accessibilityLabel("Torrents")
         .focusedValue(\.torrentTableCommandsActive, true)
         .onCopyCommand {
@@ -203,6 +203,15 @@ struct TorrentTableView: View {
         .onChange(of: tableColumnCustomizationController.customization) {
             publishProjection()
         }
+    }
+
+    private var tableMountIdentity: TorrentTableMountIdentity {
+        TorrentTableMountIdentity(
+            replacementRevision: tableColumnCustomizationController.replacementRevision,
+            visibleColumns: TorrentTableColumnVisibility.resolvedColumns(
+                in: tableColumnCustomizationController.customization
+            )
+        )
     }
 
     @TableColumnBuilder<TorrentSummary, KeyPathComparator<TorrentSummary>>
@@ -534,6 +543,11 @@ struct TorrentTableView: View {
             context: .table
         )
     }
+}
+
+private struct TorrentTableMountIdentity: Hashable {
+    var replacementRevision: UInt64
+    var visibleColumns: Set<TorrentTableColumnID>
 }
 
 private struct TorrentTableNumericCell: View {

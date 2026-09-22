@@ -4,6 +4,8 @@
 
 Transmission Remote Mac is a native Apple Silicon macOS client for remotely managing Transmission daemons. It keeps the dense, practical workflows that made Transmission Remote GUI so useful, without making you live in a browser tab.
 
+**[Visit the project website](https://transmission-remote-mac.pages.dev/)** for screenshots, features and release details.
+
 **[Download the latest release](https://github.com/transmission-remote-mac/transmission-remote-mac/releases/latest)** for Apple Silicon Macs running macOS 14 or later.
 
 ## Why I built it

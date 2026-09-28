@@ -1189,6 +1189,12 @@ final class ReleaseEvidenceShellContractTests: XCTestCase {
         XCTAssertFalse(script.contains(#""files_select""#))
         XCTAssertTrue(script.contains("large-files detail average CPU"))
         XCTAssertTrue(script.contains("large-files detail p95 CPU"))
+        XCTAssertTrue(script.contains("large-files warmup targeted torrent-get requests"))
+        XCTAssertTrue(script.contains("warmup_targeted_detail_torrent_get_requests"))
+        XCTAssertTrue(script.contains("steady_targeted_detail_torrent_get_requests"))
+        XCTAssertFalse(script.contains(
+            "record_integer_at_least \"large-files targeted torrent-get requests\""
+        ))
         XCTAssertTrue(script.contains("RELEASE_CONNECTED_AVERAGE_CPU_MAX=1.0"))
         XCTAssertTrue(script.contains("RELEASE_CONNECTED_P95_CPU_MAX=2.0"))
         XCTAssertTrue(script.contains("RELEASE_BACKGROUND_P95_CPU_MAX=2.0"))

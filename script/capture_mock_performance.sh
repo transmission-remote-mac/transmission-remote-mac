@@ -2694,6 +2694,11 @@ run_mock_debug_large_files_detail() {
         request_bytes_before <<< "$before"
     [[ "$torrents_before" == "100" ]] \
         || fail "large-files detail mock did not retain its isolated dataset: $before"
+    local warmup_detail_count=$(( torrent_before - recent_before ))
+    record_integer_at_least \
+        "large-files warmup targeted torrent-get requests" \
+        "$warmup_detail_count" \
+        1
 
     local cpu_result average_cpu p95_cpu peak_cpu samples cpu_seconds wall_seconds peak_rss_bytes
     local footprint_before footprint_peak_before footprint_result
@@ -2744,7 +2749,6 @@ run_mock_debug_large_files_detail() {
         "large-files detail p95 CPU" \
         "$p95_cpu" \
         "$RELEASE_CONNECTED_P95_CPU_MAX"
-    record_integer_at_least "large-files targeted torrent-get requests" "$detail_count" 1
     record_decimal_at_most \
         "large-files detail RPC requests per minute" \
         "$rpc_rate" \
@@ -2757,11 +2761,11 @@ run_mock_debug_large_files_detail() {
         "large-files detail peak physical footprint bytes" \
         "$footprint_peak_after" \
         "$RELEASE_FILES_FOOTPRINT_MAX_BYTES"
-    printf "mode=$EVIDENCE_MODE phase=large-files-detail process_state=$FOREGROUND_PROCESS_STATE_EVIDENCE main_window=visible_nonminiaturized foreground_evidence=$FOREGROUND_EVIDENCE dataset_torrents=100 selected_torrent_id=%s selected_pane=files fixture_files=10000 duration_seconds=%s samples=%s process_cpu_seconds=%s wall_seconds=%s average_cpu_percent=%s p95_cpu_percent=%s peak_cpu_percent=%s sampled_peak_rss_bytes=%s physical_footprint_baseline_bytes=%s physical_footprint_final_bytes=%s physical_footprint_peak_bytes=%s accepted_rpc_requests=%s rpc_requests_per_minute=%s torrent_get_requests=%s recently_active_torrent_get_requests=%s targeted_detail_torrent_get_requests=%s session_get_requests=%s session_stats_requests=%s last_torrent_get_selector=%s last_torrent_get_field_count=%s last_torrent_get_request_bytes=%s max_in_flight_requests=%s cpu_thresholds=average_below_%s,p95_below_%s rpc_threshold=at_most_%s_per_minute physical_footprint_threshold=below_%s_bytes isolation_selection_proof=matched\n" \
+    printf "mode=$EVIDENCE_MODE phase=large-files-detail process_state=$FOREGROUND_PROCESS_STATE_EVIDENCE main_window=visible_nonminiaturized foreground_evidence=$FOREGROUND_EVIDENCE dataset_torrents=100 selected_torrent_id=%s selected_pane=files fixture_files=10000 duration_seconds=%s samples=%s process_cpu_seconds=%s wall_seconds=%s average_cpu_percent=%s p95_cpu_percent=%s peak_cpu_percent=%s sampled_peak_rss_bytes=%s physical_footprint_baseline_bytes=%s physical_footprint_final_bytes=%s physical_footprint_peak_bytes=%s warmup_targeted_detail_torrent_get_requests=%s accepted_rpc_requests=%s rpc_requests_per_minute=%s torrent_get_requests=%s recently_active_torrent_get_requests=%s steady_targeted_detail_torrent_get_requests=%s session_get_requests=%s session_stats_requests=%s last_torrent_get_selector=%s last_torrent_get_field_count=%s last_torrent_get_request_bytes=%s max_in_flight_requests=%s cpu_thresholds=average_below_%s,p95_below_%s rpc_threshold=at_most_%s_per_minute physical_footprint_threshold=below_%s_bytes isolation_selection_proof=matched\n" \
         "$selection_id" "$RELEASE_FILES_SAMPLE_SECONDS" "$samples" \
         "$cpu_seconds" "$wall_seconds" "$average_cpu" "$p95_cpu" "$peak_cpu" \
         "$peak_rss_bytes" "$footprint_before" "$footprint_after" "$footprint_peak_after" \
-        "$request_count" "$rpc_rate" \
+        "$warmup_detail_count" "$request_count" "$rpc_rate" \
         "$torrent_count" "$recent_count" "$detail_count" "$session_get_count" \
         "$session_stats_count" "$selector_after" "$field_count_after" \
         "$request_bytes_after" "$max_in_flight_after" \
